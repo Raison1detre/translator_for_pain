@@ -1,0 +1,51 @@
+data hidding:сокрытие данных
+usually:обычно, обыкновенно
+related:связанно с
+slightly:чуть, немного, слегка
+restriction:ограничение
+put:класть ставить, помещать
+strictly:строго, точно
+weakly:слабо
+convention:соглашение, конвенция
+cause:причина, дело, повод
+purpose:цель, назначение
+instantiate:создать, экземпляр
+already:уже
+due to:из-за
+immediately:немедленно
+handling:умение обращаться, обслуживание
+to handle:обращаться, обрабатывать
+particulary:особенно, в частности
+edit:редактирование
+path:путь
+specify:указывать
+amount:количество, сумма
+to retrieve:извлекать, вернуть, восстанавливать
+approach:подход, подходить
+substitution:замена, подстановка
+spelling:ныписание, правописание
+often:довольно часто
+broken up:разложить, разбить на части
+implemented recursively:реализовано рекурсивно
+furthermore:более того
+acts:действует
+involve:вовлекать, включать
+indirect:косвенный, непрямой
+occur:происходить, иметь место
+arbitrary:произвольный
+must:должен, нужно
+kind:вид, род
+improve:улучшать
+to leave:оставлять, покидать
+blueprint:план, проект, калька
+indented:с отступом
+instance:объект, экземпляр, пример
+explicit:явно, явный
+although:несмотря на, хотя
+therefore:следовательно
+initial value:начальное значение
+inheritance:наследование
+pieces:кусок, часть
+certain:определенный, некоторый
+several:несколько, некоторые
+evaluate:оценивать
