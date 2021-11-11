@@ -107,7 +107,7 @@ class Ui_MainWindow(object):
             key = random.choice(first_20)
             global var_for_safe_key_from_func_play 
             while True:
-                if len(first_20) > 1 & key == var_for_safe_key_from_func_play:
+                if len(first_20) > 1 and key == var_for_safe_key_from_func_play:
                     key = random.choice(first_20)
                 else:
                     break
