@@ -1,10 +1,9 @@
-
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 import random, re
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtGui import QIcon, QPixmap
 
+WORKING_FILE_NAME = "work_dict_1.txt"
 word_dict = {} #Словарь хранящий набор слов из файла данных
 list_of_try ={}   #Словарь хранящий количество попыток для каждого слова из выбранного файла данных(того же что и для word_dict) 
 var_for_safe_key_from_func_play = str  #глобальная переменная для связи функций play() и not_know(). Нужна для того чтобы not_know() выдала именно то слово что сейчас в play()
@@ -61,7 +60,7 @@ class Ui_MainWindow(object):
 
         self.saveProgress = QtWidgets.QAction(MainWindow)
         self.saveProgress.setObjectName("save_progress")
-        self.saveProgress.triggered.connect(write_to_file)
+        self.saveProgress.triggered.connect(write_to_file(WORKING_FILE_NAME))
         self.progress.addAction(self.saveProgress)
         self.updateTry = QtWidgets.QAction(MainWindow)
         self.updateTry.setObjectName("updateTry")
@@ -77,12 +76,10 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         self.add_function()
 
-        read_a_file("work_dict_1.txt")
+        read_a_file(WORKING_FILE_NAME)
         sort()
         
        
-        
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Translator for pain"))
@@ -163,10 +160,7 @@ class Ui_MainWindow(object):
         congatulation.setIconPixmap(QPixmap('normalno.png'))
         congatulation.setStandardButtons(QMessageBox.Ok)
         congatulation.exec_()
-        write_to_file()
-
-
-    
+        write_to_file(WORKING_FILE_NAME)
 
 
 def save_new_word_in_dict(word_eng,word_rus):
@@ -178,13 +172,12 @@ def save_new_word_in_dict(word_eng,word_rus):
         return("This word is already in a dictionary")
 
 
-def write_to_file():
+def write_to_file(file_name):
     """Сохраняет промежуточный словарь и кол-во попыток в файл хранения"""
-    file = open("work_dict_1.txt", 'w')
+    file = open(file_name, 'w')
     for k,i in word_dict.items():
         file.write(k+":"+i+":"+str(list_of_try[k])+'\n')
     file.close
-
 
 
 def read_a_file(file_name):
@@ -196,8 +189,6 @@ def read_a_file(file_name):
         result = re.split(r':',res.group())
         word_dict[result[0]] = result[1]
         list_of_try[result[0]] = int(result[2])
-
-
     file.close()
 
 def sort():
@@ -218,9 +209,6 @@ def nullify_attempt():
     for key in list_of_try:
         list_of_try[key] = 0
 
-
-    
-    
 
 if __name__ == "__main__":
     import sys
