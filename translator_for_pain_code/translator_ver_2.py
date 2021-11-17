@@ -3,7 +3,7 @@ import random, re
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtGui import QIcon, QPixmap
 
-WORKING_FILE_NAME = "work_dict_1.txt"
+WORKING_FILE_NAME = 'work_dict_2.txt'
 word_dict = {} #Словарь хранящий набор слов из файла данных
 list_of_try ={}   #Словарь хранящий количество попыток для каждого слова из выбранного файла данных(того же что и для word_dict) 
 var_for_safe_key_from_func_play = str  #глобальная переменная для связи функций play() и not_know(). Нужна для того чтобы not_know() выдала именно то слово что сейчас в play()
@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
 
         self.saveProgress = QtWidgets.QAction(MainWindow)
         self.saveProgress.setObjectName("save_progress")
-        self.saveProgress.triggered.connect(write_to_file(WORKING_FILE_NAME))
+        self.saveProgress.triggered.connect(self.save_progress_clicked)
         self.progress.addAction(self.saveProgress)
         self.updateTry = QtWidgets.QAction(MainWindow)
         self.updateTry.setObjectName("updateTry")
@@ -160,6 +160,9 @@ class Ui_MainWindow(object):
         congatulation.setIconPixmap(QPixmap('normalno.png'))
         congatulation.setStandardButtons(QMessageBox.Ok)
         congatulation.exec_()
+        write_to_file(WORKING_FILE_NAME)
+
+    def save_progress_clicked(self):
         write_to_file(WORKING_FILE_NAME)
 
 
